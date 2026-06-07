@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>等高线地势特征速查 — Relief Features Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Noto Sans SC", "PingFang SC", sans-serif;
+    background: #f5f0e8;
+    color: #2d2d2d;
+    padding: 24px 16px 60px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* 标题区 */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #3e2723;
+  }
+  .header h1 small {
+    font-size: 16px;
+    font-weight: 400;
+    color: #6d4c41;
+    display: block;
+    margin-top: 4px;
+  }
+  .header .sub {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #5d4037;
+  }
+
+  /* 核心原则横幅 */
+  .principles {
+    background: #3e2723;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 28px;
+  }
+  .principles span {
+    color: #efebe9;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .principles .hl { color: #ffd54f; }
+
+  /* 网格 */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* 卡片 */
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid #e8e0d5;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+  .card-top {
+    background: #faf8f5;
+    padding: 12px 16px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #ede7df;
+  }
+  .card-num {
+    background: #8d6e63;
+    color: #fff;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3e2723;
+  }
+  .card-title .en {
+    font-weight: 400;
+    font-size: 13px;
+    color: #8d6e63;
+    margin-left: 6px;
+  }
+
+  /* SVG 区 */
+  .svg-wrap {
+    padding: 8px 12px 4px;
+    text-align: center;
+  }
+  .svg-wrap svg {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+  }
+
+  /* 文字区 */
+  .card-body {
+    padding: 8px 16px 14px;
+  }
+  .slogan {
+    background: #fff8e1;
+    color: #e65100;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #4e342e;
+  }
+  .desc strong { color: #3e2723; }
+  .desc .note {
+    color: #6d4c41;
+    font-style: italic;
+  }
+
+  /* 底部汇总 */
+  .summary {
+    margin-top: 32px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid #e8e0d5;
+  }
+  .summary h3 {
+    font-size: 16px;
+    color: #3e2723;
+    margin-bottom: 12px;
+  }
+  .summary table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .summary th {
+    text-align: left;
+    padding: 6px 8px;
+    background: #efebe9;
+    color: #3e2723;
+    font-weight: 600;
+  }
+  .summary td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #efebe9;
+    vertical-align: top;
+  }
+  .summary tr:last-child td { border-bottom: none; }
+
+  /* 海拔颜色图例 */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
+    margin: 8px 0 4px;
+    font-size: 11px;
+    color: #555;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .legend-swatch {
+    width: 18px; height: 4px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🗺️ 等高线地势特征速查
+    <small>Relief Features on Contour Maps — Quick Reference</small>
+  </h1>
+  <p class="sub">Workbook 5 · Unit 2 Section D · 适合 F2 地理复习</p>
+</div>
+
+<!-- 核心原则 -->
+<div class="principles">
+  <span>📐 <span class="hl">线密 = 坡陡</span></span>
+  <span>📏 <span class="hl">线疏 = 坡缓</span></span>
+  <span>🔽 <span class="hl">V指低 = 山脊</span></span>
+  <span>🔼 <span class="hl">V指高 = 山谷</span></span>
+  <span>⚡ <span class="hl">线叠 = 悬崖</span></span>
+</div>
+
+<!-- 图例 -->
+<div class="legend">
+  <span class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span>100m</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#9CCC65"></span>200m</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#FFD54F"></span>300m</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#FFB74D"></span>400m</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#FF8A65"></span>500m</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#A1887F"></span>600m</span>
+  <span class="legend-item" style="color:#999;">↑ 海拔递增 →</span>
+</div>
+
+<div class="grid">
+
+<!-- =========== 1. Conical Hill =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">1</span>
+    <span class="card-title">Conical Hill <span class="en">圆锥丘</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 6层同心圆 -->
+      <circle cx="120" cy="88" r="82" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="172" y="58" font-size="10" fill="#558B2F">100m</text>
+      <circle cx="120" cy="88" r="68" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="162" y="45" font-size="10" fill="#689F38">200m</text>
+      <circle cx="120" cy="88" r="54" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="151" y="38" font-size="10" fill="#F57F17">300m</text>
+      <circle cx="120" cy="88" r="40" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="90" y="42" font-size="10" fill="#E65100">400m</text>
+      <circle cx="120" cy="88" r="26" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="100" y="55" font-size="10" fill="#BF360C">500m</text>
+      <circle cx="120" cy="88" r="12" fill="none" stroke="#A1887F" stroke-width="2.5"/>
+      <text x="114" y="91" font-size="10" fill="#5D4037">600m</text>
+      <!-- 箭头标记 -->
+      <polygon points="120,88 117,78 123,78" fill="#d32f2f" opacity="0.8"/>
+      <text x="127" y="78" font-size="10" fill="#d32f2f" font-weight="700">▲ 山顶</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 一圈一圈往内高</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线呈接近圆形的同心环，越往中心海拔越高。<br>
+      <strong>特点</strong>：山顶较尖，各圈间距均匀。<br>
+      <span class="note">🔑 找到圆形收缩到最小的那一圈，就是山顶。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 2. Flat-topped Hill =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">2</span>
+    <span class="card-title">Flat-topped Hill <span class="en">平顶山</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 外围圆 -->
+      <circle cx="120" cy="88" r="80" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="172" y="55" font-size="10" fill="#558B2F">100m</text>
+      <circle cx="120" cy="88" r="64" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="160" y="42" font-size="10" fill="#689F38">200m</text>
+      <circle cx="120" cy="88" r="48" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="87" y="35" font-size="10" fill="#F57F17">300m</text>
+      <!-- 顶部变平：400m 用较宽的扁椭 -->
+      <ellipse cx="120" cy="88" rx="36" ry="28" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="87" y="52" font-size="10" fill="#E65100">400m</text>
+      <!-- 500m 更扁 -->
+      <ellipse cx="120" cy="88" rx="22" ry="16" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="100" y="68" font-size="10" fill="#BF360C">500m</text>
+      <!-- 顶部平台 -->
+      <rect x="106" y="80" width="28" height="16" rx="3" fill="none" stroke="#A1887F" stroke-width="2.5"/>
+      <text x="109" y="92" font-size="10" fill="#5D4037">600m</text>
+      <!-- 箭头 -->
+      <polygon points="120,80 117,72 123,72" fill="#d32f2f" opacity="0.8"/>
+      <text x="127" y="73" font-size="10" fill="#d32f2f" font-weight="700">▲ 平顶</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 顶上一个大平台</div>
+    <div class="desc">
+      <strong>判断</strong>：外围是圆形等高线，到了顶部区域线条变宽/变平。<br>
+      <strong>特点</strong>：山顶平坦，四周较陡。<br>
+      <span class="note">🔑 最内一圈不是尖点，而是变宽了，说明顶部平坦。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 3. Ridge =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">3</span>
+    <span class="card-title">Ridge <span class="en">山脊</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 长条形椭圆，V指向低处（向下） -->
+      <ellipse cx="120" cy="88" rx="80" ry="32" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="178" y="72" font-size="10" fill="#558B2F">100m</text>
+      <ellipse cx="120" cy="88" rx="64" ry="25" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="164" y="70" font-size="10" fill="#689F38">200m</text>
+      <ellipse cx="120" cy="88" rx="48" ry="18" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="90" y="60" font-size="10" fill="#F57F17">300m</text>
+      <ellipse cx="120" cy="88" rx="32" ry="12" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="96" y="72" font-size="10" fill="#E65100">400m</text>
+      <ellipse cx="120" cy="88" rx="18" ry="7" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="104" y="82" font-size="10" fill="#BF360C">500m</text>
+      <!-- 脊线 -->
+      <line x1="38" y1="88" x2="202" y2="88" stroke="#d32f2f" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+      <text x="85" y="106" font-size="9" fill="#d32f2f">← 脊线（分水岭）→</text>
+      <!-- V指低处标记 -->
+      <path d="M200,108 L210,115 L200,115" fill="none" stroke="#d32f2f" stroke-width="1.5"/>
+      <text x="199" y="125" font-size="9" fill="#d32f2f">V指低处 ↓</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 V指低处就是脊</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线呈长条椭圆形，V形凸出指向<strong>低处（downhill）</strong>。<br>
+      <strong>特点</strong>：像屋脊一样，是分水岭，两侧雨水往不同方向流。<br>
+      <span class="note">🔑 找到V形弯曲，V的尖端指向低海拔——就是山脊。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 4. Spur =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">4</span>
+    <span class="card-title">Spur <span class="en">山咀</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 主体 + 凸出分支（向下方伸出） -->
+      <!-- 100m 外围 -->
+      <path d="M60,30 C100,20 160,20 190,50 C210,70 215,100 200,120
+               C185,138 160,145 130,140 C110,136 95,130 85,145
+               C75,160 60,155 40,140 C20,120 15,85 35,55 C42,42 50,35 60,30Z"
+            fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="168" y="32" font-size="10" fill="#558B2F">100m</text>
+      <!-- 200m -->
+      <path d="M68,42 C100,34 150,34 175,58 C192,76 195,100 183,114
+               C170,126 150,130 130,126 C112,122 100,118 92,128
+               C84,138 72,135 58,124 C40,108 35,80 50,58 C56,48 62,44 68,42Z"
+            fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="160" y="44" font-size="10" fill="#689F38">200m</text>
+      <!-- 300m -->
+      <path d="M80,54 C108,48 148,48 168,68 C180,82 182,100 172,110
+               C162,118 146,120 132,116 C118,112 108,108 102,114
+               C96,120 86,118 76,110 C62,98 58,76 70,62 C74,57 78,55 80,54Z"
+            fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="148" y="56" font-size="10" fill="#F57F17">300m</text>
+      <!-- 400m -->
+      <path d="M94,66 C116,60 140,60 155,76 C164,88 164,98 158,104
+               C152,108 140,108 130,104 C120,100 114,98 110,102
+               C106,106 96,104 90,98 C80,88 78,74 88,68 C90,67 92,66 94,66Z"
+            fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="137" y="68" font-size="10" fill="#E65100">400m</text>
+      <!-- 500m -->
+      <ellipse cx="130" cy="88" rx="20" ry="10" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="130" y="86" font-size="10" fill="#BF360C">500m</text>
+      <!-- 箭头指向凸出部分 -->
+      <path d="M85,148 L78,138 L88,138" fill="none" stroke="#d32f2f" stroke-width="1.5"/>
+      <text x="56" y="162" font-size="9" fill="#d32f2f">← 山咀凸出</text>
+      <text x="52" y="172" font-size="9" fill="#d32f2f">两侧被山谷夹着</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 像手指伸出去</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线从山体向一个方向<strong>凸出</strong>，像手指伸出去。<br>
+      <strong>vs Ridge</strong>：Spur 是 Ridge 的分支，<strong>两侧被山谷夹着</strong>。<br>
+      <span class="note">🔑 找等高线凸出的"手指"，看它两侧是否有V形山谷——有就是Spur。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 5. Valley =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">5</span>
+    <span class="card-title">Valley <span class="en">山谷</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- V形指向高处（向上） -->
+      <!-- 100m - 最外层 V -->
+      <path d="M40,145 C50,120 70,100 85,85 C90,80 95,75 98,70
+               L120,40 L142,70 C145,75 150,80 155,85
+               C170,100 190,120 200,145"
+            fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="178" y="148" font-size="10" fill="#558B2F">100m</text>
+      <!-- 200m -->
+      <path d="M55,135 C62,116 78,100 90,90 L120,55 L150,90
+               C162,100 178,116 185,135"
+            fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="166" y="138" font-size="10" fill="#689F38">200m</text>
+      <!-- 300m -->
+      <path d="M68,125 C74,112 86,100 95,93 L120,68 L145,93
+               C154,100 166,112 172,125"
+            fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="152" y="128" font-size="10" fill="#F57F17">300m</text>
+      <!-- 400m -->
+      <path d="M80,115 C85,106 94,98 100,94 L120,80 L140,94
+               C146,98 155,106 160,115"
+            fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="136" y="118" font-size="10" fill="#E65100">400m</text>
+      <!-- 500m -->
+      <path d="M92,105 C96,100 102,96 106,94 L120,90 L134,94
+               C138,96 144,100 148,105"
+            fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="104" y="112" font-size="10" fill="#BF360C">500m</text>
+      <!-- 河流（山谷底部） -->
+      <line x1="120" y1="90" x2="120" y2="155" stroke="#4FC3F7" stroke-width="3" stroke-dasharray="6,4" opacity="0.7"/>
+      <text x="126" y="148" font-size="9" fill="#0288D1">河流 ↓</text>
+      <!-- V指高处标记 -->
+      <path d="M120,36 L115,46 L125,46" fill="none" stroke="#d32f2f" stroke-width="1.5"/>
+      <text x="100" y="30" font-size="9" fill="#d32f2f">V指高处 ↑</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 V指高处就是谷</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线呈V形，V的尖端指向<strong>高处（uphill）</strong>。<br>
+      <strong>特点</strong>：山谷中间常有河流，V形弯曲层层向内收缩。<br>
+      <span class="note">🔑 记住"V指高就是谷"——V尖指向海拔增加的方向。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 6. Saddle =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">6</span>
+    <span class="card-title">Saddle <span class="en">山口 / 鞍部</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 两个高点，中间有连接 -->
+      <!-- 100m 外围（包住两个高点） -->
+      <ellipse cx="96" cy="70" rx="58" ry="44" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <ellipse cx="144" cy="70" rx="58" ry="44" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="42" y="52" font-size="10" fill="#558B2F">100m</text>
+      <!-- 200m -->
+      <ellipse cx="96" cy="70" rx="44" ry="34" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <ellipse cx="144" cy="70" rx="44" ry="34" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="55" y="58" font-size="10" fill="#689F38">200m</text>
+      <!-- 300m - 两个山丘分离 -->
+      <ellipse cx="96" cy="68" rx="30" ry="24" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <ellipse cx="144" cy="68" rx="30" ry="24" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="70" y="62" font-size="10" fill="#F57F17">300m</text>
+      <!-- 400m - 各自收缩 -->
+      <ellipse cx="96" cy="66" rx="18" ry="14" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <ellipse cx="144" cy="66" rx="18" ry="14" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="80" y="62" font-size="10" fill="#E65100">400m</text>
+      <!-- 500m - 两个山顶 -->
+      <ellipse cx="96" cy="64" rx="8" ry="6" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <ellipse cx="144" cy="64" rx="8" ry="6" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="88" y="58" font-size="9" fill="#BF360C">500m</text>
+      <text x="136" y="58" font-size="9" fill="#BF360C">500m</text>
+      <!-- 鞍部标记 -->
+      <line x1="96" y1="80" x2="144" y2="80" stroke="#d32f2f" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="105" y="94" font-size="9" fill="#d32f2f">← 鞍部（最低点）→</text>
+      <text x="85" y="104" font-size="9" fill="#d32f2f">两边高，中间低</text>
+      <!-- 顶部箭头 -->
+      <polygon points="96,58 93,50 99,50" fill="#d32f2f" opacity="0.6"/>
+      <polygon points="144,58 141,50 147,50" fill="#d32f2f" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 两山之间的凹口</div>
+    <div class="desc">
+      <strong>判断</strong>：两个山顶等高线圈之间，有一块<strong>两边高、中间低</strong>的区域。<br>
+      <strong>特点</strong>：等高线呈"8"字形或两个"O"中间有"腰"。<br>
+      <span class="note">🔑 像马鞍的形状——两侧高、中间低就是鞍部。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 7. Cliff =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">7</span>
+    <span class="card-title">Cliff <span class="en">悬崖</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 山坡 + 悬崖 -->
+      <!-- 正常等高线 -->
+      <path d="M20,140 C50,130 70,120 100,112" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="14" y="144" font-size="10" fill="#558B2F">100m</text>
+      <path d="M20,115 C50,105 70,95 100,87" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="14" y="119" font-size="10" fill="#689F38">200m</text>
+      <path d="M20,90 C50,80 70,70 100,62" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="14" y="94" font-size="10" fill="#F57F17">300m</text>
+      <!-- 悬崖区域：等高线密集重叠 -->
+      <path d="M100,112 L100,40" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <path d="M103,108 L103,42" fill="none" stroke="#FF8A65" stroke-width="1.8"/>
+      <path d="M106,104 L106,44" fill="none" stroke="#A1887F" stroke-width="1.8"/>
+      <path d="M109,100 L109,46" fill="none" stroke="#FFB74D" stroke-width="1.5"/>
+      <path d="M112,96 L112,48" fill="none" stroke="#FF8A65" stroke-width="1.5"/>
+      <!-- 悬崖标识 -->
+      <rect x="115" y="45" width="3" height="68" fill="#d32f2f" opacity="0.3" rx="1"/>
+      <text x="120" y="82" font-size="9" fill="#d32f2f" font-weight="700">⬅ 悬崖</text>
+      <text x="120" y="93" font-size="9" fill="#d32f2f">等高线</text>
+      <text x="120" y="103" font-size="9" fill="#d32f2f">重叠区域</text>
+      <!-- 右边正常线条 -->
+      <path d="M120,130 C150,118 180,110 210,105" fill="none" stroke="#7CB342" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+      <path d="M120,100 C150,90 180,82 210,78" fill="none" stroke="#9CCC65" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 线叠线就是崖</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线<strong>重叠在一起</strong>，或者极度密集。<br>
+      <strong>特点</strong>：坡度近乎垂直，无法在地图上用正常间距表示。<br>
+      <span class="note">🔑 找线条打架/挤在一起的地方——那里就是悬崖。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 8. Convex Slope =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">8</span>
+    <span class="card-title">Convex Slope <span class="en">凸坡</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 上密下疏 -->
+      <!-- 顶部→高处（密） -->
+      <path d="M50,25 C100,18 150,18 200,25" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="202" y="28" font-size="9" fill="#558B2F">100m</text>
+      <path d="M50,35 C100,28 150,28 200,35" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="202" y="38" font-size="9" fill="#689F38">200m</text>
+      <!-- 中间（逐渐变疏） -->
+      <path d="M48,50 C100,42 150,42 202,50" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="204" y="53" font-size="9" fill="#F57F17">300m</text>
+      <path d="M45,70 C100,60 150,60 205,70" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="207" y="73" font-size="9" fill="#E65100">400m</text>
+      <!-- 底部→低处（疏） -->
+      <path d="M40,98 C100,85 150,85 210,98" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="212" y="101" font-size="9" fill="#BF360C">500m</text>
+      <path d="M30,135 C100,118 150,118 220,135" fill="none" stroke="#A1887F" stroke-width="2"/>
+      <text x="222" y="138" font-size="9" fill="#5D4037">600m</text>
+      <!-- 标注 -->
+      <text x="40" y="18" font-size="10" fill="#d32f2f" font-weight="700">↑ 高处</text>
+      <text x="38" y="165" font-size="10" fill="#1565C0" font-weight="700">↓ 低处</text>
+      <!-- 间距标注 -->
+      <line x1="12" y1="25" x2="12" y2="35" stroke="#d32f2f" stroke-width="1.5"/>
+      <line x1="12" y1="35" x2="12" y2="50" stroke="#d32f2f" stroke-width="1.5"/>
+      <line x1="8" y1="50" x2="8" y2="70" stroke="#1565C0" stroke-width="1.5"/>
+      <line x1="8" y1="70" x2="8" y2="98" stroke="#1565C0" stroke-width="1.5"/>
+      <line x1="8" y1="98" x2="8" y2="135" stroke="#1565C0" stroke-width="1.5"/>
+      <text x="18" y="52" font-size="8" fill="#d32f2f">密</text>
+      <text x="12" y="105" font-size="8" fill="#1565C0">疏</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 上密下疏是凸坡</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线在<strong>上部密集</strong>（陡）、<strong>下部稀疏</strong>（缓）。<br>
+      <strong>坡度变化</strong>：越往下走，坡度<strong>逐渐增大</strong>（越来越陡）。<br>
+      <span class="note">🔑 看上半部分——上面线密就是凸坡。从山顶往下走，会越走越陡。</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 9. Concave Slope =========== -->
+<div class="card">
+  <div class="card-top">
+    <span class="card-num">9</span>
+    <span class="card-title">Concave Slope <span class="en">凹坡</span></span>
+  </div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="5" width="220" height="170" rx="6" fill="#faf8f5" stroke="#e0d5c5" stroke-width="1"/>
+      <!-- 上疏下密 -->
+      <!-- 顶部→高处（疏） -->
+      <path d="M50,25 C100,18 150,18 200,25" fill="none" stroke="#7CB342" stroke-width="2"/>
+      <text x="202" y="28" font-size="9" fill="#558B2F">100m</text>
+      <path d="M40,55 C100,42 150,42 210,55" fill="none" stroke="#9CCC65" stroke-width="2"/>
+      <text x="212" y="58" font-size="9" fill="#689F38">200m</text>
+      <!-- 中间（逐渐变密） -->
+      <path d="M35,78 C100,62 150,62 215,78" fill="none" stroke="#FFD54F" stroke-width="2"/>
+      <text x="217" y="81" font-size="9" fill="#F57F17">300m</text>
+      <path d="M32,95 C100,78 150,78 218,95" fill="none" stroke="#FFB74D" stroke-width="2"/>
+      <text x="220" y="98" font-size="9" fill="#E65100">400m</text>
+      <!-- 底部→低处（密） -->
+      <path d="M30,108 C100,92 150,92 220,108" fill="none" stroke="#FF8A65" stroke-width="2"/>
+      <text x="222" y="111" font-size="9" fill="#BF360C">500m</text>
+      <path d="M28,118 C100,104 150,104 222,118" fill="none" stroke="#A1887F" stroke-width="2"/>
+      <text x="224" y="121" font-size="9" fill="#5D4037">600m</text>
+      <!-- 标注 -->
+      <text x="40" y="18" font-size="10" fill="#d32f2f" font-weight="700">↑ 高处</text>
+      <text x="38" y="165" font-size="10" fill="#1565C0" font-weight="700">↓ 低处</text>
+      <!-- 间距标注 -->
+      <line x1="12" y1="25" x2="12" y2="55" stroke="#1565C0" stroke-width="1.5"/>
+      <line x1="12" y1="55" x2="12" y2="78" stroke="#1565C0" stroke-width="1.5"/>
+      <line x1="12" y1="78" x2="12" y2="95" stroke="#1565C0" stroke-width="1.5"/>
+      <line x1="12" y1="95" x2="12" y2="108" stroke="#d32f2f" stroke-width="1.5"/>
+      <line x1="12" y1="108" x2="12" y2="118" stroke="#d32f2f" stroke-width="1.5"/>
+      <text x="18" y="40" font-size="8" fill="#1565C0">疏</text>
+      <text x="14" y="115" font-size="8" fill="#d32f2f">密</text>
+    </svg>
+  </div>
+  <div class="card-body">
+    <div class="slogan">🧠 上疏下密是凹坡</div>
+    <div class="desc">
+      <strong>判断</strong>：等高线在<strong>上部稀疏</strong>（缓）、<strong>下部密集</strong>（陡）。<br>
+      <strong>坡度变化</strong>：越往下走，坡度<strong>逐渐减小</strong>（越来越缓）。<br>
+      <span class="note">🔑 看上半部分——上面线疏就是凹坡。从山顶往下走，会越走越缓。</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /grid -->
+
+<!-- 汇总口诀 -->
+<div class="summary">
+  <h3>📋 一句话速查口诀（完整版）</h3>
+  <table>
+    <tr>
+      <th style="width:16%;">特征</th>
+      <th style="width:34%;">口诀</th>
+      <th style="width:50%;">等高线模式</th>
+    </tr>
+    <tr><td>Conical hill</td><td>一圈一圈往内高</td><td>同心圆，越往内海拔越高，顶部尖</td></tr>
+    <tr><td>Flat-topped hill</td><td>顶上一个大平台</td><td>同心圆到顶部变宽变平</td></tr>
+    <tr><td>Ridge</td><td>V指低处就是脊</td><td>V形/长条凸向低处，分水岭</td></tr>
+    <tr><td>Spur</td><td>像手指伸出去</td><td>从山体凸出的分支，两侧有山谷</td></tr>
+    <tr><td>Valley</td><td>V指高处就是谷</td><td>V形凸向高处，中间常有河流</td></tr>
+    <tr><td>Saddle</td><td>两山之间的凹口</td><td>两个高点中间有"腰"，两边高中低</td></tr>
+    <tr><td>Cliff</td><td>线叠线就是崖</td><td>等高线重叠/极度密集</td></tr>
+    <tr><td>Convex slope</td><td>上密下疏是凸坡</td><td>上部线密（陡）→ 下部线疏（缓），越走越陡</td></tr>
+    <tr><td>Concave slope</td><td>上疏下密是凹坡</td><td>上部线疏（缓）→ 下部线密（陡），越走越缓</td></tr>
+  </table>
+</div>
+
+<div class="summary" style="margin-top:16px;">
+  <h3>💡 Figure 4 答题小技巧</h3>
+  <p style="font-size:13px;line-height:1.8;color:#4e342e;">
+    ① 先看每个标注点在等高线的什么位置（山顶？谷底？脊线上？）<br>
+    ② 如果是 V 形弯曲处→判断尖指向高处还是低处→决定 Valley vs Ridge<br>
+    ③ 如果是封闭环形→看最内圈的形状→尖是 Conical hill，平是 Flat-topped hill<br>
+    ④ 如果是两个封闭圈之间→看是否两边高中间低→Saddle<br>
+    ⑤ 看等高线的疏密变化→判断 Convex vs Concave slope<br>
+    ⑥ 看是否有线条重叠→Cliff
+  </p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

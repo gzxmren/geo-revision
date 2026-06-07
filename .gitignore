@@ -1,0 +1,6 @@
+# PDF 教材文件（不上传）
+*.pdf
+
+# 系统文件
+.DS_Store
+Thumbs.db

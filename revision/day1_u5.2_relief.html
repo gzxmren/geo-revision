@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 上午 — Unit 5.2 Relief · 地理复习</title>
+<style>
+  :root {
+    --bg: #faf9f6;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --green: #059669;
+    --orange: #d97706;
+    --red: #dc2626;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 1rem;
+  }
+  .container { max-width: 820px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #166534, #22c55e);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .header h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+  .header .sub {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .header .sub span { background: rgba(255,255,255,0.15); padding: 0.2rem 0.8rem; border-radius: 20px; }
+
+  section {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  section h2 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  section h3 {
+    font-size: 1rem;
+    color: #334155;
+    margin: 1rem 0 0.4rem;
+  }
+  section h4 { font-size: 0.95rem; color: #475569; margin: 0.8rem 0 0.3rem; }
+  p, li { margin-bottom: 0.5rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--accent-light); font-weight: 600; color: var(--accent); }
+
+  .formula-box {
+    background: #f8fafc;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .formula-box .label { color: var(--muted); font-family: system-ui; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; }
+
+  .tip-box {
+    background: #fefce8;
+    border-left: 4px solid var(--orange);
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+  }
+  .tip-box strong { color: var(--orange); }
+
+  .key-box {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+  }
+
+  .cn { color: var(--muted); font-size: 0.85rem; }
+
+  /* Quiz cards */
+  .q-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .q-card .q-label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    margin-bottom: 0.4rem;
+  }
+  .q-card .q-text { font-weight: 500; margin-bottom: 0.3rem; }
+  .q-card .options { padding-left: 1.2rem; margin: 0.3rem 0; }
+  .q-card .options li { list-style: none; font-size: 0.9rem; }
+  .q-card .blank { display: inline-block; width: 7em; border-bottom: 2px dashed var(--accent); margin: 0 0.2rem; }
+
+  .answer-toggle {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    margin-top: 0.2rem;
+  }
+  .answer-toggle:hover { text-decoration: underline; }
+  .answer-body {
+    display: none;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .answer-body.show { display: block; }
+  .answer-body strong { color: var(--green); }
+
+  .score-table { margin-top: 1rem; width: auto; }
+  .score-table th, .score-table td { text-align: center; }
+
+  /* Diagram placeholder */
+  .diagram-box {
+    background: #f1f5f9;
+    border: 2px dashed #94a3b8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0.8rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  @media print {
+    body { background: white; padding: 0.5in; }
+    section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+    .answer-body { display: block !important; }
+    .answer-toggle { display: none; }
+    .header { background: #166534 !important; -webkit-print-color-adjust: exact; }
+    th { background: var(--accent-light) !important; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>📍 Day 1 上午 · Unit 5.2</h1>
+  <div class="sub" style="font-size:1.2rem; font-weight:600; margin-top:0.2rem;">
+    How Can We Describe the Relief of a Place? · 如何描述一个地方的地势？
+  </div>
+  <div class="sub">
+    <span>Module 5</span>
+    <span>⏱ ~40 min 讲解 + ~20 min 检测</span>
+    <span>🎯 等高线 · 剖面图 · 坡度 · 地形特征</span>
+  </div>
+</div>
+
+<!-- ===== 1. WHAT IS RELIEF ===== -->
+<section>
+<h2>1. 什么是 Relief（地势）？</h2>
+<p><strong>Relief</strong> = the <strong>shape</strong> of the land, including <strong>height</strong> and <strong>steepness</strong></p>
+<p class="cn">（地势 = 土地的形状，包括高度和陡峭程度）</p>
+
+<p>地球表面不平坦，有些地方是山地（hilly），有些地方是低地（low-lying）。我们在地图或剖面图上展示地势。</p>
+</section>
+
+<!-- ===== 2. SHOWING RELIEF ON A MAP ===== -->
+<section>
+<h2>2. 在地图上展示地势（三种方法）</h2>
+
+<h3>A. Colouring 着色法</h3>
+<ul>
+  <li><strong>Brown</strong>（棕色）= highland areas 高地</li>
+  <li><strong>Green</strong>（绿色）= lowland areas 低地</li>
+</ul>
+
+<h3>B. Contouring 等高线法</h3>
+<ul>
+  <li><strong>Contour line 等高线</strong> = a line joining places of the <strong>same height</strong></li>
+  <li><strong>Vertical Interval (V.I.) 垂直间距</strong> = the difference in height between <strong>two consecutive</strong> contour lines
+    <br><span class="cn">例如 V.I. = 20 m，表示相邻两条等高线的高度差为 20 米</span></li>
+</ul>
+
+<div class="key-box">
+  <strong>等高线疏密与坡度的关系：</strong><br>
+  📏 等高线 <strong>密集（closely packed）</strong> → <strong>陡坡（steep slope）</strong><br>
+  📏 等高线 <strong>稀疏（widely spaced）</strong> → <strong>缓坡（gentle slope）</strong>
+</div>
+
+<h3>C. Conventional Signs 惯用符号</h3>
+<ul>
+  <li><strong>Trigonometric station 三角网测站</strong>（符号：△）— 通常在山顶显示精确高度</li>
+  <li><strong>Spot height 高程点</strong>（符号：• 或 +）— 显示某一点的精确高度</li>
+</ul>
+</section>
+
+<!-- ===== 3. CROSS SECTION ===== -->
+<section>
+<h2>3. 绘制剖面图（Cross Section）</h2>
+<p>剖面图是沿着等高线图上某条线（如 P–Q）展示地势起伏的侧视图。</p>
+
+<h3>步骤：</h3>
+<ol>
+  <li>将一张纸的边缘对齐地图上的 P–Q 线</li>
+  <li>在纸的边缘标记每条等高线与 P–Q 线的交叉点</li>
+  <li>将标记转移到坐标纸的底部（x 轴）</li>
+  <li>根据 <strong>垂直比例尺（vertical scale）</strong> 在每个标记处绘制高度点</li>
+  <li>用平滑曲线连接各点</li>
+  <li>添加标题（Title）</li>
+</ol>
+
+<div class="diagram-box">
+  📐 典型剖面图画法示意<br>
+  <code style="font-size:0.8rem;">
+  高度(m) ↑<br>
+   400 ───────╱╲──────<br>
+   300 ────╱╲────╲╱───<br>
+   200 ──╱╲───────────<br>
+   100 ╱╲─────────────<br>
+   0 ─╲───────────────→ 距离<br>
+       P               Q
+  </code>
+</div>
+</section>
+
+<!-- ===== 4. VERTICAL EXAGGERATION ===== -->
+<section>
+<h2>4. 垂直放大率（V.E.）</h2>
+
+<div class="formula-box">
+  <span class="label">Vertical Exaggeration (V.E.) 垂直放大率</span>
+  V.E. = Vertical Scale (VS) ÷ Horizontal Scale (HS)
+</div>
+
+<ul>
+  <li><strong>VS（垂直比例尺）</strong> = 你为剖面图选择的高度比例，例如 1 cm : 100 m</li>
+  <li><strong>HS（水平比例尺）</strong> = 地图的比例尺，例如 1 cm : 50 m</li>
+  <li>V.E. > 1 表示高度被放大，以便在地形起伏不明显的地方也能看到起伏</li>
+</ul>
+
+<div class="tip-box">
+  <strong>📌 考试重点：单位换算！</strong><br>
+  如果 VS = 1 cm : 100 m，HS = 1 cm : 50 m<br>
+  先把两个比例尺换成相同单位：VS = 1 cm : 10,000 cm，HS = 1 cm : 5,000 cm<br>
+  V.E. = 10,000 ÷ 5,000 = <strong>2</strong>
+</div>
+
+<p><strong>实用技巧：</strong>如果垂直比例尺是 1 cm : X m，水平比例尺是 1 cm : Y m，那么：</p>
+<div class="formula-box">
+  <span class="label">快捷公式</span>
+  V.E. = X ÷ Y × (相同单位时用这个)<br>
+  <span class="cn">或者：V.E. = (地图水平比例尺分母) ÷ (垂直比例尺分母)，但要确保都是 cm</span>
+</div>
+</section>
+
+<!-- ===== 5. SLOPE GRADIENT ===== -->
+<section>
+<h2>5. 坡度（Slope Gradient）</h2>
+
+<div class="formula-box">
+  <span class="label">Slope Gradient 坡度</span>
+  Gradient = Vertical Rise ÷ Horizontal Distance
+</div>
+
+<ul>
+  <li>通常表示为 "1 in X" — 例如 1 in 5 表示水平距离每 5 米，高度上升 1 米</li>
+  <li><strong>数字越小坡度越陡：</strong>1 in 3 比 1 in 10 更陡（因为同样水平距离升高更多）</li>
+</ul>
+
+<h3>例子：</h3>
+<p>两点之间的高度差（vertical rise）= 40 m，水平距离 = 200 m</p>
+<div class="formula-box">Gradient = 40 ÷ 200 = 1 in 5</div>
+
+<div class="tip-box">
+  <strong>📌 重要提示：</strong>Gradient = 1 in X，X <strong>越大</strong>，坡度越<strong>缓</strong>；X <strong>越小</strong>，坡度越<strong>陡</strong>。
+</div>
+</section>
+
+<!-- ===== 6. RELIEF FEATURES ===== -->
+<section>
+<h2>6. 等高线图中的常见地形特征</h2>
+
+<table>
+  <tr><th>Feature 特征</th><th>中文</th><th>Description 描述</th><th>等高线形态</th></tr>
+  <tr>
+    <td>Conical hill</td><td>圆锥丘</td>
+    <td>圆形山丘，向中心逐渐升高</td>
+    <td>同心圆，最内圈最高</td>
+  </tr>
+  <tr>
+    <td>Flat-topped hill</td><td>平顶山</td>
+    <td>山顶平坦，四周陡峭</td>
+    <td>最内圈等高线宽/平</td>
+  </tr>
+  <tr>
+    <td>Ridge</td><td>山脊</td>
+    <td>狭长形高地</td>
+    <td>等高线呈拉长的椭圆形，包围最高处</td>
+  </tr>
+  <tr>
+    <td>Spur</td><td>山嘴</td>
+    <td>从高地向下延伸的脊状突起</td>
+    <td>等高线向下坡方向弯曲（凸出）</td>
+  </tr>
+  <tr>
+    <td>Valley</td><td>山谷</td>
+    <td>两山之间的低洼地，常有河流</td>
+    <td>等高线向上坡方向弯曲（凹入）</td>
+  </tr>
+  <tr>
+    <td>Saddle</td><td>山口 / 鞍部</td>
+    <td>两高地之间的最低点</td>
+    <td>两高中间有低地</td>
+  </tr>
+  <tr>
+    <td>Cliff</td><td>悬崖</td>
+    <td>非常陡峭/垂直的斜坡</td>
+    <td>等高线合并或交叉</td>
+  </tr>
+  <tr>
+    <td>Convex slope</td><td>凸坡</td>
+    <td>坡度<span style="color:var(--red)"><strong>向下坡增加</strong></span></td>
+    <td>上密下疏（上半陡，下半缓）</td>
+  </tr>
+  <tr>
+    <td>Concave slope</td><td>凹坡</td>
+    <td>坡度<span style="color:var(--green)"><strong>向下坡减小</strong></span></td>
+    <td>上疏下密（上半缓，下半陡）</td>
+  </tr>
+</table>
+
+<div class="key-box">
+  <strong>🎯 快速记忆：</strong><br>
+  <strong>Spur</strong> = 等高线向下（凸出） / <strong>Valley</strong> = 等高线向上（凹入）<br>
+  <strong>Convex slope</strong> = 凸（上半陡） / <strong>Concave slope</strong> = 凹（下半陡）
+</div>
+</section>
+
+<!-- ===== 7. RELIEF OF HK ===== -->
+<section>
+<h2>7. 香港的地势（Relief of Hong Kong）</h2>
+
+<table>
+  <tr><th>Type 类型</th><th>Characteristics 特征</th><th>Examples 例子</th></tr>
+  <tr>
+    <td><strong>Upland</strong> 高地</td>
+    <td><strong>Hilly</strong>；大部分 > 200 m</td>
+    <td>大帽山 Tai Mo Shan, 大屿山 Lantau Peak</td>
+  </tr>
+  <tr>
+    <td><strong>Lowland</strong> 低地</td>
+    <td><strong>Few</strong> natural lowlands（河谷和沿海平原）</td>
+    <td>元朗平原 Yuen Long Plain（新界西北部最大）</td>
+  </tr>
+  <tr>
+    <td><strong>Reclaimed land</strong> 填海地</td>
+    <td>通过填海 <strong>reclamation</strong> 人工造出的低地</td>
+    <td>尖沙咀 Tsim Sha Tsui, 沙田 Sha Tin, 长沙湾 Cheung Sha Wan</td>
+  </tr>
+  <tr>
+    <td><strong>Coastline</strong> 海岸线</td>
+    <td><strong>Long</strong> and <strong>indented</strong>（曲折）；多海湾和离岛</td>
+    <td>长洲 Cheung Chau, 南丫岛 Lamma Island</td>
+  </tr>
+</table>
+
+<div class="tip-box">
+  <strong>📌 考试重点：</strong>香港的自然低地<strong>很少</strong>，所以很多平地是靠填海得来的。知道每个类型至少一个例子。
+</div>
+</section>
+
+<!-- ===== 8. KEY VOCAB ===== -->
+<section>
+<h2>📖 本节核心词汇</h2>
+<table>
+  <tr><th>English</th><th>中文</th></tr>
+  <tr><td>relief</td><td>地势</td></tr>
+  <tr><td>contour line</td><td>等高线</td></tr>
+  <tr><td>vertical interval (V.I.)</td><td>垂直间距</td></tr>
+  <tr><td>cross section</td><td>剖面图 / 横切面</td></tr>
+  <tr><td>vertical exaggeration (V.E.)</td><td>垂直放大率</td></tr>
+  <tr><td>slope gradient</td><td>坡度</td></tr>
+  <tr><td>colouring</td><td>着色法</td></tr>
+  <tr><td>conventional sign</td><td>惯用符号</td></tr>
+  <tr><td>trigonometric station</td><td>三角网测站</td></tr>
+  <tr><td>spot height</td><td>高程点</td></tr>
+  <tr><td>ridge / spur</td><td>山脊 / 山嘴</td></tr>
+  <tr><td>valley / saddle</td><td>山谷 / 山口(鞍部)</td></tr>
+  <tr><td>cliff</td><td>悬崖</td></tr>
+  <tr><td>convex slope / concave slope</td><td>凸坡 / 凹坡</td></tr>
+  <tr><td>conical hill</td><td>圆锥丘</td></tr>
+  <tr><td>reclaimed land / reclamation</td><td>填海地 / 填海</td></tr>
+  <tr><td>plain</td><td>平原</td></tr>
+</table>
+</section>
+
+<!-- ===== 9. QUIZ ===== -->
+<section>
+<h2>📝 检测题 — Unit 5.2</h2>
+<p style="color:var(--muted); font-size:0.9rem;">点击 "Show Answer" 查看答案和解析。</p>
+
+<!-- Q1 -->
+<div class="q-card">
+  <span class="q-label">MCQ</span>
+  <div class="q-text">1. What does "relief" refer to?</div>
+  <ul class="options">
+    <li>A. The weather conditions of a place</li>
+    <li>B. The shape of the land, including height and steepness</li>
+    <li>C. The population density of an area</li>
+    <li>D. The type of rocks found in an area</li>
+  </ul>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body"><strong>✅ B. The shape of the land, including height and steepness</strong></div>
+</div>
+
+<!-- Q2 -->
+<div class="q-card">
+  <span class="q-label">MCQ</span>
+  <div class="q-text">2. What is the function of a contour line on a map?</div>
+  <ul class="options">
+    <li>A. It joins places with the same temperature</li>
+    <li>B. It joins places with the same height</li>
+    <li>C. It shows the direction of rivers</li>
+    <li>D. It indicates the type of vegetation</li>
+  </ul>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body"><strong>✅ B. It joins places with the same height</strong><br>等高线（contour line）连接高度相同的点。</div>
+</div>
+
+<!-- Q3 -->
+<div class="q-card">
+  <span class="q-label">MCQ</span>
+  <div class="q-text">3. If contour lines are closely packed together on a map, what does this indicate?</div>
+  <ul class="options">
+    <li>A. Gentle slope</li>
+    <li>B. Flat land</li>
+    <li>C. Steep slope</li>
+    <li>D. River valley</li>
+  </ul>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body"><strong>✅ C. Steep slope（陡坡）</strong><br>等高线越密，坡度越陡。</div>
+</div>
+
+<!-- Q4 -->
+<div class="q-card">
+  <span class="q-label">MCQ</span>
+  <div class="q-text">4. Which of the following is the largest natural lowland area in Hong Kong?</div>
+  <ul class="options">
+    <li>A. Tsim Sha Tsui</li>
+    <li>B. Sha Tin</li>
+    <li>C. Yuen Long Plain</li>
+    <li>D. Cheung Chau</li>
+  </ul>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body"><strong>✅ C. Yuen Long Plain（元朗平原）</strong><br>位于新界西北部，是香港最大的自然低地。</div>
+</div>
+
+<!-- Q5: Calculation -->
+<div class="q-card">
+  <span class="q-label">Calculation</span>
+  <div class="q-text">5. The vertical interval of a contour map is 50 m. The map scale is 1 cm : 100 m. A cross section is drawn with a vertical scale of 1 cm : 50 m. Calculate the vertical exaggeration (V.E.).</div>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body">
+    <strong>✅ V.E. = 2</strong><br><br>
+    <strong>计算步骤：</strong><br>
+    1. 先统一单位到 cm：<br>
+    &nbsp;&nbsp;HS（水平比例尺）= 1 cm : 100 m = 1 cm : 10,000 cm<br>
+    &nbsp;&nbsp;VS（垂直比例尺）= 1 cm : 50 m = 1 cm : 5,000 cm<br>
+    2. V.E. = VS ÷ HS = 10,000 ÷ 5,000 = <strong>2</strong>
+  </div>
+</div>
+
+<!-- Q6: Calculation -->
+<div class="q-card">
+  <span class="q-label">Calculation</span>
+  <div class="q-text">6. The vertical rise between two points on a slope is 60 m. The horizontal distance between them is 300 m. Calculate the slope gradient.</div>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body">
+    <strong>✅ Gradient = 1 in 5</strong><br><br>
+    <strong>计算：</strong><br>
+    Gradient = Vertical Rise ÷ Horizontal Distance<br>
+    = 60 ÷ 300 = 1/5 = <strong>1 in 5</strong>
+  </div>
+</div>
+
+<!-- Q7: Fill-in -->
+<div class="q-card">
+  <span class="q-label">Fill-in</span>
+  <div class="q-text">7. The difference in height between two consecutive contour lines is called the <span class="blank">&nbsp;</span>.</div>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body"><strong>✅ vertical interval (V.I.)（垂直间距）</strong></div>
+</div>
+
+<!-- Q8 -->
+<div class="q-card">
+  <span class="q-label">MCQ</span>
+  <div class="q-text">8. Which of the following descriptions about convex and concave slopes is correct?</div>
+  <ul class="options">
+    <li>A. Convex slope: gradient decreases downhill; Concave slope: gradient increases downhill</li>
+    <li>B. Convex slope: gradient increases downhill; Concave slope: gradient decreases downhill</li>
+    <li>C. Both have the same pattern of gradient change</li>
+    <li>D. Convex slope has widely spaced contour lines throughout</li>
+  </ul>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body">
+    <strong>✅ B. Convex slope: gradient increases downhill; Concave slope: gradient decreases downhill</strong><br>
+    <strong>凸坡（Convex）</strong>：向下坡越走越陡（上缓下陡）→ 等高线上疏下密<br>
+    <strong>凹坡（Concave）</strong>：向下坡越走越缓（上陡下缓）→ 等高线上密下疏
+  </div>
+</div>
+
+<!-- Q9: Feature identification -->
+<div class="q-card">
+  <span class="q-label">Identify</span>
+  <div class="q-text">9. Name the relief features described below:</div>
+  <div style="padding-left:1rem; font-size:0.9rem;">
+    (a) An elongated highland area, with contour lines forming an elongated shape enclosing the highest area. → <span class="blank">&nbsp;</span><br>
+    (b) A low point between two higher areas on a contour map. → <span class="blank">&nbsp;</span><br>
+    (c) Contour lines pointing uphill, often with a river flowing through. → <span class="blank">&nbsp;</span>
+  </div>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Answer</button>
+  <div class="answer-body">
+    <strong>✅ (a) Ridge（山脊）</strong><br>
+    <strong>✅ (b) Saddle（山口/鞍部）</strong><br>
+    <strong>✅ (c) Valley（山谷）</strong>
+  </div>
+</div>
+
+<!-- Q10: Short answer -->
+<div class="q-card">
+  <span class="q-label">Structured</span>
+  <div class="q-text">10. Describe the relief of Hong Kong. Name ONE example of an upland area and ONE example of a lowland area. <span style="color:var(--muted);font-weight:400;">（4分）</span></div>
+  <button class="answer-toggle" onclick="toggleAnswer(this)">▶ Show Sample Answer</button>
+  <div class="answer-body">
+    <strong>✅ Sample answer:</strong><br>
+    The relief of Hong Kong is mostly <strong>hilly</strong>. An upland area is <strong>Tai Mo Shan</strong> (大帽山), which is over 900 m high. Natural lowland areas are <strong>few</strong>, and the largest one is the <strong>Yuen Long Plain</strong> (元朗平原) in the northwestern New Territories. Some lowland areas, such as <strong>Tsim Sha Tsui</strong> (尖沙咀), are created by <strong>reclamation</strong>（填海）. The coastline is long and indented, with many bays and offshore islands.
+  </div>
+</div>
+
+<!-- Score table -->
+<div style="margin-top:1.5rem;">
+  <h3>📊 得分对照表</h3>
+  <table class="score-table">
+    <tr><th>题号</th><th>分值</th><th>得分</th></tr>
+    <tr><td>1–4</td><td>4 × 1 = 4</td><td>__ / 4</td></tr>
+    <tr><td>5–6（计算）</td><td>2 × 2 = 4</td><td>__ / 4</td></tr>
+    <tr><td>7</td><td>1</td><td>__ / 1</td></tr>
+    <tr><td>8</td><td>1</td><td>__ / 1</td></tr>
+    <tr><td>9</td><td>3</td><td>__ / 3</td></tr>
+    <tr><td>10</td><td>4</td><td>__ / 4</td></tr>
+    <tr><th>Total</th><th>17</th><th>__ / 17</th></tr>
+  </table>
+</div>
+
+</section>
+
+<!-- Next -->
+<section style="text-align:center; background: var(--accent-light);">
+  <p style="font-size:0.95rem; color:var(--muted);">✅ Day 1 上午 — Unit 5.2 完成</p>
+  <p style="margin-top:0.3rem;">▶ 下一段：<strong>Unit 5.3 — What Are the Causes and Effects of Landslides? 山泥倾泻</strong></p>
+  <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">📂 文件同目录下已有完整词汇表 revision/vocabulary_bilingual.md</p>
+</section>
+
+</div><!-- /container -->
+
+<script>
+function toggleAnswer(btn) {
+  var body = btn.nextElementSibling;
+  if (body && body.classList.contains('answer-body')) {
+    body.classList.toggle('show');
+    btn.textContent = body.classList.contains('show') ? '▼ Hide Answer' : '▶ Show Answer';
+  }
+}
+</script>
+
+</body>
+</html>
