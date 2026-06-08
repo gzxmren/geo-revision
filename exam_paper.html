@@ -94,7 +94,7 @@ footer a{color:var(--accent)}
 <h2>Section A — Multiple Choice Questions <span class=marks>10 marks</span></h2>
 <p class=cn>每题 1 分。选择最佳答案。</p>
 
-<div class=q-card>
+  <div class=q-card>
   <span class=q-label>Q1</span>
   <div class=q-text>Refer to the map below (Scale 1:20,000). What is the vertical interval of the contour map?</div>
   <ul class=options>
@@ -103,11 +103,12 @@ footer a{color:var(--accent)}
     <li>C. 50 m</li>
     <li>D. 100 m</li>
   </ul>
-  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
   <div class=ans-body>
-    <strong>✅ Answer: B. 20 m</strong>
-    <div class=tip>📌 对于 1:20,000 比例尺的等高线地图，标准垂直间距通常为 20m。确认方法：在图上找到两条相邻等高线的高度差值。</div>
-    <div><strong>Key concept</strong>：Vertical Interval (V.I.) = 两条相邻等高线之间的高度差。</div>
+    <strong>✅ Answer: C. 50 m</strong>
+    <div class=tip>📌 V.I.（垂直间距）= 两条相邻等高线之间的高度差。<br>
+    根据原图标注确认（等高线标注数值如 200m / 250m / 300m，相邻相减得 50m）。</div>
+    <div><strong>Key concept</strong>：Vertical Interval (V.I.) = Vertical difference between two consecutive contour lines.</div>
   </div>
 </div>
 
@@ -123,12 +124,10 @@ footer a{color:var(--accent)}
   </table>
   <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
   <div class=ans-body>
-    <strong>✅ Answer: 取决于原图标记</strong>
-    <div class=tip>📌 解题方法：<br>
-    • <strong>Spur（山咀）</strong>：等高线向低处突出（指向 downhill）<br>
-    • <strong>Valley（山谷）</strong>：等高线向高处突出（指向 uphill），常有河流<br>
-    • <strong>Concave slope（凹坡）</strong>：上缓下陡（等高线上疏下密）<br>
-    • <strong>Convex slope（凸坡）</strong>：上陡下缓（等高线上密下疏）</div>
+    <strong>✅ Answer: D. Valley + Convex slope</strong>
+    <div class=tip>📌 根据原图：<br>
+    • <strong>X → Valley（山谷）</strong>：等高线向高处（350m）突出，指向 uphill<br>
+    • <strong>Y → Convex slope（凸坡）</strong>：等高线上密下疏，上陡下缓</div>
   </div>
 </div>
 
@@ -150,29 +149,50 @@ footer a{color:var(--accent)}
     <div class=tip>📌 Layer X 为 <strong>地幔（Mantle）</strong>。<br>
     (1) ✅ 地幔温度高<br>
     (2) ✅ 地幔最上层（岩石圈部分）为固态岩石<br>
-    (3) ❌ 密度最高的是<strong>地核（Core）</strong>，不是地幔</div>
+    (3) ❌ 密度最高的是<strong>地核（Core）</strong></div>
   </div>
 </div>
 
 <div class=q-card>
   <span class=q-label>Q4</span>
-  <div class=q-text>（图片 OCR 未能完整识别）题目涉及 <strong>防止坡面物质滑落</strong>，与 <strong>黏聚力（cohesion）</strong> 和 <strong>阻抗力（resisting force）</strong> 相关。</div>
-  <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
+  <div class=q-text>______ prevents slope materials from sliding down. It is affected by the cohesion of slope materials and the force of friction.</div>
+  <ul class=options>
+    <li>A. Resisting force</li>
+    <li>B. Driving force</li>
+    <li>C. Rainwater</li>
+    <li>D. Gravity</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
   <div class=ans-body>
-    <strong>📌 相关知识点</strong>
-    <div>• <strong>Resisting force（阻抗力）</strong>：阻止坡面物质向下移动的力</div>
-    <div>• 影响阻抗力的因素：<strong>Cohesion（黏聚力）</strong> + <strong>Friction（摩擦力）</strong></div>
-    <div>• 黏聚力越大 → 阻抗力越大 → 斜坡越稳定</div>
-    <div class=tip>详见 Unit 5.3 Landslides 复习笔记</div>
+    <strong>✅ Answer: A. Resisting force（阻抗力）</strong>
+    <div class=tip>📌 分析：<br>
+    • 题目说"prevents slope materials from sliding down" → 阻止滑落的力<br>
+    • 影响因素是 cohesion（黏聚力）和 friction（摩擦力）→ 这两者都影响 resisting force<br>
+    • <strong>Resisting force</strong> ✅：阻止下滑，受 cohesion 和 friction 影响<br>
+    • Driving force ❌：推动下滑，受坡度和重量影响<br>
+    • Rainwater ❌：会加重 slope materials 并降低 cohesion<br>
+    • Gravity ❌：产生 driving force 的主要来源</div>
   </div>
 </div>
 
 <div class=q-card>
   <span class=q-label>Q5</span>
-  <div class=q-text>（题目编号延续，原文部分 OCR 缺失）</div>
-  <button class=ans-toggle onclick="ta(this)">▶ Note</button>
+  <div class=q-text>The Hong Kong Observatory often issues the following warning in ______?<br><span class=cn>（附图：石头从山坡滚落的示意图 → Landslip Warning 山泥倾泻警告）</span></div>
+  <ul class=options>
+    <li>A. spring</li>
+    <li>B. summer</li>
+    <li>C. autumn</li>
+    <li>D. winter</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
   <div class=ans-body>
-    <div>原题图片 OCR 不完整，建议参考试卷原图核对。</div>
+    <strong>✅ Answer: B. summer（夏季）</strong>
+    <div class=tip>📌 Landslip Warning 在香港最常见于<strong>夏季</strong>（5-9月），因为：<br>
+    • 夏季降雨量最大（暴雨、台风、季风）<br>
+    • 雨水增加坡面物质重量 → ⬆️ Driving force<br>
+    • 雨水渗入降低黏聚力 → ⬇️ Resisting force<br>
+    • Driving force > Resisting force → 山泥倾泻风险最高</div>
+    <div><strong>Reference</strong>: Unit 5.3 — Landslides in HK + Unit 5.4 — Climate of HK</div>
   </div>
 </div>
 
@@ -422,17 +442,17 @@ footer a{color:var(--accent)}
   <div class=q-text>Identify plates A-F in Figure 1a.</div>
   <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
   <div class=ans-body>
-    <div>取决于原图标注，但常见六大板块为：</div>
-    <ul style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
-      <li><strong>Pacific Plate</strong> — 太平洋板块</li>
-      <li><strong>Eurasian Plate</strong> — 欧亚板块</li>
-      <li><strong>Indo-Australian Plate</strong> — 印度-澳洲板块</li>
-      <li><strong>North American Plate</strong> — 北美板块</li>
-      <li><strong>South American Plate</strong> — 南美板块</li>
-      <li><strong>African Plate</strong> — 非洲板块</li>
-      <li><strong>Antarctic Plate</strong> — 南极板块</li>
-    </ul>
-    <div class=tip>📌 注意拼写正确，每个板块名 1 分。</div>
+    <strong>根据原图标注：</strong>
+    <table style=margin:.5rem 0>
+      <tr><th>标注</th><th>位置描述</th><th>板块名称</th></tr>
+      <tr><td>A</td><td>非洲东岸的大西洋</td><td><strong>African Plate</strong>（非洲板块）</td></tr>
+      <tr><td>B</td><td>西伯利亚</td><td><strong>Eurasian Plate</strong>（欧亚板块）</td></tr>
+      <tr><td>C</td><td>大洋洲澳大利亚以东的海洋</td><td><strong>Indo-Australian Plate</strong>（印度-澳洲板块）</td></tr>
+      <tr><td>D</td><td>太平洋中间</td><td><strong>Pacific Plate</strong>（太平洋板块）</td></tr>
+      <tr><td>E</td><td>北美大陆</td><td><strong>North American Plate</strong>（北美板块）</td></tr>
+      <tr><td>F</td><td>南美大陆</td><td><strong>South American Plate</strong>（南美板块）</td></tr>
+    </table>
+    <div class=tip>📌 注意拼写正确，每个板块名 1 分（共 6 分）。</div>
   </div>
 </div>
 
