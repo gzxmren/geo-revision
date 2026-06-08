@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025-2026 F.2 地理期末考试 · 试题+答案解析</title>
+<style>
+:root{
+  --bg:#faf9f6;
+  --card:#fff;
+  --accent:#0d9488;
+  --accent-light:#f0fdfa;
+  --green:#059669;
+  --orange:#d97706;
+  --red:#dc2626;
+  --blue:#2563eb;
+  --text:#1e293b;
+  --muted:#64748b;
+  --border:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,'Noto Sans SC','PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;padding:1rem}
+.container{max-width:900px;margin:0 auto}
+.header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;padding:2rem 2rem 1.5rem;border-radius:16px;margin-bottom:1.5rem;text-align:center}
+.header h1{font-size:1.5rem}.header .sub{font-size:.9rem;opacity:.85;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.header .sub span{background:rgba(255,255,255,.15);padding:.2rem .8rem;border-radius:20px}
+.header .stats{display:flex;justify-content:center;gap:2rem;margin-top:1rem;font-size:.85rem}
+.header .stats div{text-align:center}
+.header .stats .num{font-size:1.3rem;font-weight:700}
+section{background:var(--card);border-radius:12px;padding:1.5rem 1.8rem;margin-bottom:1.2rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+section h2{font-size:1.2rem;color:var(--accent);border-bottom:2px solid var(--accent-light);padding-bottom:.4rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap}
+section h2 .marks{font-size:.8rem;font-weight:400;color:var(--muted)}
+section h3{font-size:1rem;color:#334155;margin:1.2rem 0 .4rem}
+.q-card{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:1rem 1.3rem;margin-bottom:.8rem}
+.q-card .q-label{display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:600;padding:.15rem .6rem;border-radius:12px;margin-bottom:.4rem}
+.q-card .q-sub{display:inline-block;background:var(--blue);color:#fff;font-size:.7rem;font-weight:600;padding:.12rem .5rem;border-radius:10px;margin-left:.3rem}
+.q-card .q-text{font-weight:500;margin-bottom:.3rem}
+.q-card .options{padding-left:1.2rem;margin:.3rem 0;list-style:none}
+.q-card .options li{font-size:.9rem}
+.q-card .blank{display:inline-block;width:7em;border-bottom:2px dashed var(--accent);margin:0 .2rem;text-align:center}
+.ans-toggle{background:none;border:none;color:var(--accent);font-size:.85rem;font-weight:600;cursor:pointer;padding:.3rem 0;margin-top:.2rem;border-radius:4px}
+.ans-toggle:hover{background:var(--accent-light)}
+.ans-body{display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:.7rem 1rem;margin-top:.5rem;font-size:.9rem}
+.ans-body.show{display:block}
+.ans-body strong{color:var(--green)}
+.ans-body .note{color:var(--orange);font-weight:500;margin-top:.4rem}
+.ans-body .tip{background:#fefce8;border-left:3px solid var(--orange);padding:.4rem .7rem;margin:.5rem 0;border-radius:0 4px 4px 0;font-size:.85rem}
+.ans-body table{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.85rem}
+.ans-body th,.ans-body td{border:1px solid var(--border);padding:.4rem .6rem;text-align:left}
+.ans-body th{background:var(--accent-light);font-weight:600}
+table.data-table{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.85rem}
+table.data-table th,table.data-table td{border:1px solid var(--border);padding:.4rem .6rem;text-align:left}
+table.data-table th{background:var(--accent-light);font-weight:600}
+.cn{color:var(--muted);font-size:.85rem}
+.formula-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.85rem;font-family:'Courier New',monospace}
+.sec-nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-radius:10px;padding:.6rem 1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.4rem;font-size:.8rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.sec-nav a{color:var(--accent);text-decoration:none;padding:.2rem .6rem;border-radius:6px}
+.sec-nav a:hover{background:var(--accent-light)}
+footer{text-align:center;padding:2rem 0;color:var(--muted);font-size:.8rem}
+footer a{color:var(--accent)}
+@media print{body{background:#fff;padding:.3in;font-size:11pt}section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.ans-body{display:block!important}.ans-toggle{display:none}.header{background:#0f766e!important;-webkit-print-color-adjust:exact}.sec-nav{display:none}}
+@media(max-width:600px){.header h1{font-size:1.2rem}section{padding:1rem 1rem}.q-card{padding:.8rem 1rem}}
+</style>
+</head>
+<body>
+<div class=container>
+
+<div class=header>
+  <h1>📝 2025-2026 F.2 地理期末考试</h1>
+  <div class=sub>
+    <span>Module 3 · Food Problems</span>
+    <span>Module 5 · Living with Natural Hazards</span>
+    <span>F.2 Final Exam</span>
+  </div>
+  <div class=stats>
+    <div><div class=num>100</div><div>总分</div></div>
+    <div><div class=num>5</div><div>题型</div></div>
+    <div><div class=num>65</div><div>资料题分值</div></div>
+  </div>
+</div>
+
+<nav class=sec-nav>
+  <a href="#sec-a">Section A</a>
+  <a href="#sec-b">Section B</a>
+  <a href="#sec-c">Section C</a>
+  <a href="#sec-d">Section D</a>
+  <a href="#sec-e">Section E</a>
+</nav>
+
+<!-- ============================================================ -->
+<!-- SECTION A -->
+<!-- ============================================================ -->
+<section id=sec-a>
+<h2>Section A — Multiple Choice Questions <span class=marks>10 marks</span></h2>
+<p class=cn>每题 1 分。选择最佳答案。</p>
+
+<div class=q-card>
+  <span class=q-label>Q1</span>
+  <div class=q-text>Refer to the map below (Scale 1:20,000). What is the vertical interval of the contour map?</div>
+  <ul class=options>
+    <li>A. 10 m</li>
+    <li>B. 20 m</li>
+    <li>C. 50 m</li>
+    <li>D. 100 m</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: B. 20 m</strong>
+    <div class=tip>📌 对于 1:20,000 比例尺的等高线地图，标准垂直间距通常为 20m。确认方法：在图上找到两条相邻等高线的高度差值。</div>
+    <div><strong>Key concept</strong>：Vertical Interval (V.I.) = 两条相邻等高线之间的高度差。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q2</span>
+  <div class=q-text>What are relief features X and Y?</div>
+  <table class=data-table style=margin:.4rem 0;font-size:.85rem>
+    <tr><th></th><th>X</th><th>Y</th></tr>
+    <tr><td>A</td><td>Spur</td><td>Concave slope</td></tr>
+    <tr><td>B</td><td>Spur</td><td>Convex slope</td></tr>
+    <tr><td>C</td><td>Valley</td><td>Concave slope</td></tr>
+    <tr><td>D</td><td>Valley</td><td>Convex slope</td></tr>
+  </table>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: 取决于原图标记</strong>
+    <div class=tip>📌 解题方法：<br>
+    • <strong>Spur（山咀）</strong>：等高线向低处突出（指向 downhill）<br>
+    • <strong>Valley（山谷）</strong>：等高线向高处突出（指向 uphill），常有河流<br>
+    • <strong>Concave slope（凹坡）</strong>：上缓下陡（等高线上疏下密）<br>
+    • <strong>Convex slope（凸坡）</strong>：上陡下缓（等高线上密下疏）</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q3</span>
+  <div class=q-text>The figure below shows the structure of the earth. Which of the following descriptions about Layer X is/are correct?<br>
+  (1) It has high temperature.<br>
+  (2) Its uppermost part is made up of solid rocks.<br>
+  (3) It has the highest density among all layers.</div>
+  <ul class=options>
+    <li>A. (1) only</li>
+    <li>B. (1) and (2) only</li>
+    <li>C. (1) and (3) only</li>
+    <li>D. (2) and (3) only</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: B. (1) and (2) only</strong>
+    <div class=tip>📌 Layer X 为 <strong>地幔（Mantle）</strong>。<br>
+    (1) ✅ 地幔温度高<br>
+    (2) ✅ 地幔最上层（岩石圈部分）为固态岩石<br>
+    (3) ❌ 密度最高的是<strong>地核（Core）</strong>，不是地幔</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4</span>
+  <div class=q-text>（图片 OCR 未能完整识别）题目涉及 <strong>防止坡面物质滑落</strong>，与 <strong>黏聚力（cohesion）</strong> 和 <strong>阻抗力（resisting force）</strong> 相关。</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
+  <div class=ans-body>
+    <strong>📌 相关知识点</strong>
+    <div>• <strong>Resisting force（阻抗力）</strong>：阻止坡面物质向下移动的力</div>
+    <div>• 影响阻抗力的因素：<strong>Cohesion（黏聚力）</strong> + <strong>Friction（摩擦力）</strong></div>
+    <div>• 黏聚力越大 → 阻抗力越大 → 斜坡越稳定</div>
+    <div class=tip>详见 Unit 5.3 Landslides 复习笔记</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q5</span>
+  <div class=q-text>（题目编号延续，原文部分 OCR 缺失）</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Note</button>
+  <div class=ans-body>
+    <div>原题图片 OCR 不完整，建议参考试卷原图核对。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q6</span>
+  <div class=q-text>Which of the following descriptions about the climate of Hong Kong in spring are correct?<br>
+  (1) Fog is common.<br>
+  (2) Relative humidity is high.<br>
+  (3) Mean monthly temperature is below 10°C.</div>
+  <ul class=options>
+    <li>A. (1) and (2) only</li>
+    <li>B. (1) and (3) only</li>
+    <li>C. (2) and (3) only</li>
+    <li>D. (1), (2) and (3)</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: A. (1) and (2) only</strong>
+    <div class=tip>📌 香港春季（3-4月）：<strong>温和潮湿（mild and humid）</strong>，多雾<br>
+    (1) ✅ 春季常见雾（fog）<br>
+    (2) ✅ 相对湿度高<br>
+    (3) ❌ 香港春季月平均温度约 18-22°C，<strong>不低于 10°C</strong></div>
+    <div><strong>Reference</strong>: Unit 5.4 — Climate of Hong Kong</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q7</span>
+  <div class=q-text>Which of the following statements about food supply of Hong Kong are correct?<br>
+  (1) The major source of rice is supplied by Thailand.<br>
+  (2) Hong Kong produces most vegetables consumed.<br>
+  (3) The share of local food production in Hong Kong is very small.</div>
+  <ul class=options>
+    <li>A. (1) and (2) only</li>
+    <li>B. (1) and (3) only</li>
+    <li>C. (2) and (3) only</li>
+    <li>D. (1), (2) and (3)</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: B. (1) and (3) only</strong>
+    <div class=tip>📌 香港粮食供应特点：<br>
+    (1) ✅ 稻米主要来源为泰国（~52%）<br>
+    (2) ❌ 香港 90% 以上的蔬菜从<strong>内地（Mainland）</strong>进口，非本地生产<br>
+    (3) ✅ 本地粮食生产占比<strong>非常小</strong></div>
+    <div><strong>Reference</strong>: Unit 3.1 — Hong Kong's Food Supply</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q8</span>
+  <div class=q-text>Which of the following are the cultural inputs of a farming system?<br>
+  (1) Sunlight<br>
+  (2) Fertilizers<br>
+  (3) Pesticides</div>
+  <ul class=options>
+    <li>A. (1) and (2) only</li>
+    <li>B. (1) and (3) only</li>
+    <li>C. (2) and (3) only</li>
+    <li>D. (1), (2) and (3)</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: C. (2) and (3) only</strong>
+    <div class=tip>📌 农业投入分类：<br>
+    • <strong>Physical inputs（自然投入）</strong>：Sunlight、Rainfall、Temperature、Soil — 自然环境提供<br>
+    • <strong>Cultural / Human inputs（人文投入）</strong>：Fertilizers ✅、Pesticides ✅、Capital、Labour、Technology — 人为提供<br>
+    (1) ❌ Sunlight 属于 Physical input，不是 Cultural input</div>
+    <div><strong>Reference</strong>: Unit 3.1 — Farming System</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q9</span>
+  <div class=q-text>Which of the following are farming processes?<br>
+  (1) Buying tractors<br>
+  (2) Adding fertilizers<br>
+  (3) Harvesting vegetables</div>
+  <ul class=options>
+    <li>A. (1) and (2) only</li>
+    <li>B. (1) and (3) only</li>
+    <li>C. (2) and (3) only</li>
+    <li>D. (1), (2) and (3)</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: C. (2) and (3) only</strong>
+    <div class=tip>📌 农业系统三阶段：<br>
+    • <strong>Inputs（投入）</strong>：Buying tractors ❌ — 购买拖拉机是投入阶段<br>
+    • <strong>Processes（过程）</strong>：Ploughing → Irrigating → Fertilizing ✅ → Weeding → Harvesting ✅<br>
+    • <strong>Outputs（产出）</strong>：Farm produce, Crop residues</div>
+    <div><strong>Reference</strong>: Unit 3.1 — Farming System</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q10</span>
+  <div class=q-text>Which of the following is the highest peak in Hong Kong?</div>
+  <ul class=options>
+    <li>A. Lantau Peak（凤凰山）</li>
+    <li>B. Lion Rock（狮子山）</li>
+    <li>C. Sunset Peak（大东山）</li>
+    <li>D. Tai Mo Shan（大帽山）</li>
+  </ul>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: D. Tai Mo Shan（大帽山，957 m）</strong>
+    <div class=tip>📌 香港最高峰排名：<br>
+    1. <strong>Tai Mo Shan（大帽山）</strong> 957 m<br>
+    2. Lantau Peak（凤凰山）934 m<br>
+    3. Sunset Peak（大东山）869 m</div>
+    <div><strong>Reference</strong>: Unit 5.2 — Relief of Hong Kong</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION B -->
+<!-- ============================================================ -->
+<section id=sec-b>
+<h2>Section B — Matching <span class=marks>6 marks</span></h2>
+<p class=cn>将 Column A 的地区与 Column B 的特征配对，每空 1 分。</p>
+
+<div class=q-card>
+  <div class=q-text>Match the farming regions in China in Column A with their respective farming characteristics in Column B. Put the letters (A-E) in the brackets.</div>
+  <table class=data-table style=margin:.6rem 0>
+    <tr><th>Column A</th><th>Column B</th></tr>
+    <tr><td>1. Xibei region</td><td>A. Farm size: Large</td></tr>
+    <tr><td>2. Huabei and Dongbei regions</td><td>B. Farm size: Small</td></tr>
+    <tr><td>3. Huanan region</td><td>C. Major outputs: Rice</td></tr>
+    <tr><td></td><td>D. Major outputs: Wheat</td></tr>
+    <tr><td></td><td>E. Major outputs: Milk and wool</td></tr>
+  </table>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answers:</strong>
+    <table style=margin:.5rem 0>
+      <tr><th>Region</th><th>Farm Size</th><th>Major Outputs</th></tr>
+      <tr><td><strong>1. Xibei region</strong> 西北</td><td><strong>A</strong> (Large)</td><td><strong>E</strong> (Milk &amp; wool)</td></tr>
+      <tr><td><strong>2. Huabei &amp; Dongbei</strong> 华北/东北</td><td><strong>A</strong> (Large)</td><td><strong>D</strong> (Wheat)</td></tr>
+      <tr><td><strong>3. Huanan region</strong> 华南</td><td><strong>B</strong> (Small)</td><td><strong>C</strong> (Rice)</td></tr>
+    </table>
+    <div class=tip>📌 记忆要点：<br>
+    • <strong>Xibei</strong>：干旱、草原 → 大规模畜牧业（牛奶、羊毛）<br>
+    • <strong>Huabei/Dongbei</strong>：平原、温带 → 大规模小麦种植<br>
+    • <strong>Huanan</strong>：湿润、丘陵 → 小规模水稻种植</div>
+    <div><strong>Reference</strong>: Unit 3.2 — Farming Regions in China</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION C -->
+<!-- ============================================================ -->
+<section id=sec-c>
+<h2>Section C — Fill in the Blanks <span class=marks>10 marks</span></h2>
+<p class=cn>每空 1 分。</p>
+
+<div class=q-card>
+  <div class=q-text>Fill in the blanks below with the most suitable word(s).</div>
+
+  <p style=margin:.6rem 0;font-size:.9rem>
+    1. The <span class=blank>(a)</span> is a part of the mantle layer that is in plastic state. The rocks there can flow slowly under high temperature and pressure.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    2. The crust and the uppermost part of the mantle are collectively known as the <span class=blank>(b)</span>.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    3. Under a hot and wet climate, <span class=blank>(c)</span> causes rocks such as granite to become weak and be broken easily.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    4. Farming includes the growing of <span class=blank>(d)</span> and the rearing of <span class=blank>(e)</span>.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    5. Extreme weather or climate causes <span class=blank>(f)</span> hazards.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    6. A farming system consists of inputs, process and <span class=blank>(g)</span>.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    7. A farming region is an area growing the same major types of crops or raising the same types of livestock, using similar farming <span class=blank>(h)</span>.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    8. <span class=blank>(i)</span> refers to the period of a year when crops can be grown.
+  </p>
+  <p style=margin:.4rem 0;font-size:.9rem>
+    9. Building barriers such as flexible barriers and <span class=blank>(j)</span> can prevent slope materials from rushing down to settlements.
+  </p>
+
+  <button class=ans-toggle onclick="ta(this)">▶ Show All Answers</button>
+  <div class=ans-body>
+    <table style=margin:.5rem 0>
+      <tr><th>Blank</th><th>Answer</th><th>中文</th><th>Unit</th></tr>
+      <tr><td>(a)</td><td><strong>asthenosphere</strong></td><td>软流圈</td><td>5.5</td></tr>
+      <tr><td>(b)</td><td><strong>lithosphere</strong></td><td>岩石圈</td><td>5.5</td></tr>
+      <tr><td>(c)</td><td><strong>weathering</strong></td><td>风化作用</td><td>5.3</td></tr>
+      <tr><td>(d)</td><td><strong>crops</strong></td><td>农作物</td><td>3.1</td></tr>
+      <tr><td>(e)</td><td><strong>livestock</strong></td><td>牲畜</td><td>3.1</td></tr>
+      <tr><td>(f)</td><td><strong>natural / meteorological</strong></td><td>自然（气象）灾害</td><td>5.1</td></tr>
+      <tr><td>(g)</td><td><strong>outputs</strong></td><td>产出</td><td>3.1</td></tr>
+      <tr><td>(h)</td><td><strong>methods / techniques</strong></td><td>方法</td><td>3.2</td></tr>
+      <tr><td>(i)</td><td><strong>Growing season</strong></td><td>生长期</td><td>3.2</td></tr>
+      <tr><td>(j)</td><td><strong>debris fence / catch fence</strong><br>或 retaining wall</td><td>拦泥坝 / 护土墙</td><td>5.3</td></tr>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION D -->
+<!-- ============================================================ -->
+<section id=sec-d>
+<h2>Section D — True or False <span class=marks>9 marks</span></h2>
+<p class=cn>共 9 题，每题 1 分。题目内容在 Answer Sheet 上，照片中未显示。以下为各单元常见判断题考点供参考：</p>
+
+<div class=q-card>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Common T/F Topics</button>
+  <div class=ans-body>
+    <div>根据考试范围，Section D 可能涉及以下知识点：</div>
+    <ul style=margin:.5rem 0 0 1.2rem;font-size:.85rem>
+      <li><strong>5.1</strong>：Natural event → hazard → disaster 的区别</li>
+      <li><strong>5.2</strong>：等高线特征（疏=缓坡，密=陡坡）</li>
+      <li><strong>5.3</strong>：Driving force vs Resisting force；风化作用</li>
+      <li><strong>5.4</strong>：Weather vs Climate；季风方向；台风结构</li>
+      <li><strong>5.5</strong>：地壳/地幔/地核；板块运动；Richter vs MMI</li>
+      <li><strong>5.6</strong>：LDC vs MDC 脆弱性差异</li>
+      <li><strong>3.1</strong>：香港粮食供应；农业系统；集约 vs 粗放</li>
+      <li><strong>3.2</strong>：中国三大农业区特征</li>
+      <li><strong>3.3</strong>：中国粮食自给率 95%</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION E -->
+<!-- ============================================================ -->
+<section id=sec-e>
+<h2>Section E — Data-based Questions <span class=marks>65 marks</span></h2>
+
+<!-- Q1 -->
+<h3>Q1. Plate Tectonics &amp; Earthquakes <span class=marks style=font-weight:400>19 marks</span></h3>
+<p class=cn>Figure 1a 为板块分布图，Table 1b 对比了 Place X 和 Place Y 的数据。</p>
+
+<div class=q-card>
+  <span class=q-label>Q1(a)</span><span class=q-sub>6 marks</span>
+  <div class=q-text>Identify plates A-F in Figure 1a.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
+  <div class=ans-body>
+    <div>取决于原图标注，但常见六大板块为：</div>
+    <ul style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li><strong>Pacific Plate</strong> — 太平洋板块</li>
+      <li><strong>Eurasian Plate</strong> — 欧亚板块</li>
+      <li><strong>Indo-Australian Plate</strong> — 印度-澳洲板块</li>
+      <li><strong>North American Plate</strong> — 北美板块</li>
+      <li><strong>South American Plate</strong> — 南美板块</li>
+      <li><strong>African Plate</strong> — 非洲板块</li>
+      <li><strong>Antarctic Plate</strong> — 南极板块</li>
+    </ul>
+    <div class=tip>📌 注意拼写正确，每个板块名 1 分。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q1(b)</span><span class=q-sub>2 marks</span>
+  <div class=q-text>Name TWO major earthquake zones you have learned.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer:</strong>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Pacific Ring of Fire（环太平洋地震带 / 环太平洋火山带）</strong></li>
+      <li><strong>Alpine-Himalayan belt（地中海-喜马拉雅地震带 / 阿尔卑斯-喜马拉雅带）</strong></li>
+    </ol>
+    <div class=tip>📌 <strong>注意</strong>：复习笔记仅提及 Pacific Ring of Fire，<strong>未明确列出第二条</strong>。这是本次复习的一个小缺口。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q1(c)</span><span class=q-sub>4 marks</span>
+  <div class=q-text>According to Table 1b, which of the places shown in Table 1b may have greater loss when an earthquake strikes? Give TWO reasons (except GDP) to explain your answer and justify your answer with evidence from Table 1b.</div>
+
+  <table class=data-table style=margin:.6rem 0>
+    <tr><th></th><th>Place X</th><th>Place Y</th></tr>
+    <tr><td>Population density (people/km²)</td><td>8,530</td><td>1,340</td></tr>
+    <tr><td>World Ranking by GDP</td><td>102</td><td>3</td></tr>
+    <tr><td>Scientists &amp; engineers (per 1,000 people)</td><td>0.2</td><td>4</td></tr>
+    <tr><td>Common building materials</td><td>Stone, bricks and wood</td><td>Steel &amp; concrete, earthquake-proof structures</td></tr>
+    <tr><td>Earthquake drill</td><td>None</td><td>Twice a year</td></tr>
+  </table>
+
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: Place X may have greater loss.</strong>
+    <div class=tip>📌 Two reasons (except GDP):</div>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Higher population density</strong> — Place X has 8,530 people/km², which is much higher than Place Y's 1,340 people/km². More people are concentrated in the affected area, so more people may be injured or killed.</li>
+      <li><strong>Weaker building materials</strong> — Place X uses stone, bricks and wood (non-earthquake-proof), while Place Y uses steel and concrete with earthquake-proof structures. Weak buildings are more likely to collapse during earthquakes.</li>
+    </ol>
+    <div>Additional possible reason: <strong>No earthquake drills</strong> — Place X has none while Place Y drills twice a year. Without drills, people don't know how to react during an earthquake.</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q1(d)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>What can the government of the place mentioned in your answer (c) do to reduce damage caused by earthquakes? Suggest THREE measures.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer (any 3):</strong>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Implement earthquake drills</strong> —Regular drills help people know how to respond during an earthquake, reducing injuries and loss of life.</li>
+      <li><strong>Enforce earthquake-proof building codes</strong> — Require all new buildings to use steel and concrete with earthquake-proof designs. Retrofit existing weak buildings.</li>
+      <li><strong>Establish an early warning / monitoring system</strong> — Install seismic monitoring stations to detect earthquakes early and send alerts.</li>
+      <li><strong>Provide public education</strong> — Teach people about earthquake safety through schools, media and community programmes.</li>
+    </ol>
+    <div><strong>Reference</strong>: Unit 5.5 — Preventive &amp; Remedial Measures</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q1(e)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>According to Table 1b, Place Y lies on earthquake zone, but people still live in Place Y. Give THREE reasons.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer (any 3):</strong>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li><strong>High standard of living / economic opportunities</strong> — Place Y ranks 3rd in the world by GDP. People enjoy high income, good jobs and modern facilities.</li>
+      <li><strong>Trust in preventive measures</strong> — Place Y has earthquake-proof buildings and regular earthquake drills (twice a year). People believe they are well-protected.</li>
+      <li><strong>Strong social and cultural ties</strong> — People have deep roots in their communities and are unwilling to leave their homes.</li>
+      <li><strong>Limited choices</strong> — All places have some hazards; other areas may be too harsh or have strict migration policies.</li>
+    </ol>
+    <div><strong>Reference</strong>: Unit 5.6 — Why Do People Still Live in Hazard-Prone Areas?</div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<h3 style=margin-top:1.5rem>Q2. Weather Map &amp; Monsoons <span class=marks style=font-weight:400>17 marks</span></h3>
+<p class=cn>Figure 2a 为天气图，Figure 2b 为补充资料。</p>
+
+<div class=q-card>
+  <span class=q-label>Q2(a)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>According to Figure 2a, what extreme weather was going to affect Hong Kong? What are the favorable conditions to form this extreme weather? List TWO.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer:</strong>
+    <p><strong>Extreme weather: Typhoon / Tropical cyclone（台风 / 热带气旋）</strong></p>
+    <p><strong>Two favorable conditions:</strong></p>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Warm ocean water</strong> with surface temperature above <strong>26.5°C</strong></li>
+      <li><strong>Abundant supply of moist air</strong></li>
+    </ol>
+    <div class=tip>📌 台风形成于热带海洋，需要温暖海水（>26.5°C）和充足水汽</div>
+    <div><strong>Reference</strong>: Unit 5.4 — Typhoon Formation Conditions</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q2(b)</span><span class=q-sub>8 marks</span>
+  <div class=q-text>Refer to Figures 2a and 2b, complete the table about the weather condition of Hong Kong provided on the Answer Sheet B.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
+  <div class=ans-body>
+    <div>常见天气图填表要素（具体数值取决于 Figure 2a 中的天气符号）：</div>
+    <table style=margin:.5rem 0>
+      <tr><th>Weather Element</th><th>How to Read</th><th>Example (typhoon scenario)</th></tr>
+      <tr><td>Air temperature 气温</td><td>温度计数值 (°C)</td><td>~28°C</td></tr>
+      <tr><td>Wind direction 风向</td><td>风向箭头 — 从哪吹来</td><td>S / SW（南/西南风）</td></tr>
+      <tr><td>Wind speed 风速</td><td>箭头上的羽片数量</td><td>Strong / 强风</td></tr>
+      <tr><td>Air pressure 气压</td><td>等压线数值 (hPa)</td><td>~996 hPa（低压）</td></tr>
+      <tr><td>Precipitation 降水</td><td>降水符号</td><td>Heavy rain / 暴雨</td></tr>
+      <tr><td>Cloud cover 云量</td><td>云量符号</td><td>Overcast / 密云</td></tr>
+    </table>
+    <div class=tip>📌 复习建议：练习读天气图时，逐一确认每个气象要素的符号和数值。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q2(c)</span><span class=q-sub>1 mark</span>
+  <div class=q-text>Which season does Figure 2a most likely represent, summer or winter?</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: Summer（夏季）</strong>
+    <div class=tip>📌 台风/热带气旋影响香港的季节为夏季（5月-9月）。冬季不受台风影响。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q2(d)</span><span class=q-sub>5 marks</span>
+  <div class=q-text>Explain how summer monsoons are formed in South China.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Model Answer:</strong>
+    <ol style=margin:.4rem 0 0 1.2rem>
+      <li>In summer, the <strong>land heats up quickly</strong>, causing the air above it to <strong>rise</strong> → <strong>low pressure</strong> forms over land.</li>
+      <li>The <strong>sea heats up slowly</strong>, so the air above the sea stays <strong>cooler</strong> → <strong>high pressure</strong> forms over the ocean.</li>
+      <li>Air flows from <strong>high pressure (sea) → low pressure (land)</strong>, creating <strong>onshore winds</strong>.</li>
+      <li>These onshore winds carry <strong>abundant moisture</strong> from the ocean.</li>
+      <li>When the moist air rises over land and cools, it <strong>condenses</strong> → forms clouds → brings <strong>heavy rainfall</strong>.</li>
+    </ol>
+    <div class=tip>📌 关键术语：<strong>land heats up quicker / low pressure / high pressure over sea / onshore wind / moisture / condensation</strong></div>
+    <div><strong>Reference</strong>: Unit 5.4 — Summer Monsoon Mechanism</div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<h3 style=margin-top:1.5rem>Q3. Farming Comparison <span class=marks style=font-weight:400>9 marks</span></h3>
+<p class=cn>Figure 3a: Joe's farm in Australia；Figure 3b: Jane's farm in Thailand；Table 3c 对比数据。</p>
+
+<div class=q-card>
+  <span class=q-label>Q3(a)</span><span class=q-sub>2 marks</span>
+  <div class=q-text>Refer to the information above, match the farming activities of Joe and Jane with Farming activity X and Y in Table 3c.</div>
+
+  <table class=data-table style=margin:.6rem 0>
+    <tr><th></th><th>Farming activity X</th><th>Farming activity Y</th></tr>
+    <tr><td>Area of farmland</td><td>834 m²</td><td>9,580 m²</td></tr>
+    <tr><td>Number of farm workers</td><td>15</td><td>15</td></tr>
+    <tr><td>Number of farm machines</td><td>3</td><td>33</td></tr>
+    <tr><td>Major farm produce</td><td>Rice</td><td>Wool and lamb</td></tr>
+    <tr><td>Major use of farm produce</td><td>Mainly for self-consumption</td><td>Mainly for sale in markets</td></tr>
+  </table>
+
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer:</strong>
+    <ul style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Jane（Thailand）→ Farming activity X</strong> — 小面积（834 m²）、少机器（3台）、种水稻、自给</li>
+      <li><strong>Joe（Australia）→ Farming activity Y</strong> — 大面积（9,580 m²）、多机器（33台）、羊毛/羊肉、商业出售</li>
+    </ul>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q3(b)</span><span class=q-sub>4 marks</span>
+  <div class=q-text>Classify the farming activities X and Y in terms of their:<br>
+  (i) purpose of production<br>
+  (ii) types of outputs.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer:</strong>
+    <table style=margin:.5rem 0>
+      <tr><th></th><th>Activity X (Jane)</th><th>Activity Y (Joe)</th></tr>
+      <tr><td><strong>(i) Purpose of production</strong></td><td><strong>Subsistence farming</strong> 自给农业<br>（主要自用）</td><td><strong>Commercial farming</strong> 商业农业<br>（市场销售）</td></tr>
+      <tr><td><strong>(ii) Types of outputs</strong></td><td><strong>Arable farming</strong> 耕作农业<br>（种植稻米）</td><td><strong>Pastoral farming</strong> 畜牧业<br>（羊毛和羊肉）</td></tr>
+    </table>
+    <div><strong>Reference</strong>: Unit 3.1 — Types of Farming</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q3(c)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>Is farming activity X or Y intensive farming? Justify your answer with evidence from the information above.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>✅ Answer: Farming activity X is intensive farming.</strong>
+    <div class=tip>📌 理由：</div>
+    <ul style=margin:.4rem 0 0 1.2rem>
+      <li><strong>Intensive farming（集约式农业）</strong> = <strong>High inputs and outputs per unit area</strong></li>
+      <li>Evidence from table: Activity X has <strong>15 workers on only 834 m²</strong> → high labour input per unit area</li>
+      <li>In contrast, Activity Y has <strong>15 workers on 9,580 m²</strong> → much lower labour input per unit area (extensive)</li>
+      <li>Activity Y has many machines (33) but on a much larger area → still <strong>low inputs per unit area</strong> → <strong>extensive farming</strong></li>
+    </ul>
+    <div><strong>Reference</strong>: Unit 3.1 — Intensive vs Extensive Farming</div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<h3 style=margin-top:1.5rem>Q4. Mui Wo Contour Map <span class=marks style=font-weight:400>20 marks</span></h3>
+<p class=cn>Figure 4: 1:5,000 map of Mui Wo（梅窝）</p>
+
+<div class=q-card>
+  <span class=q-label>Q4(a)</span><span class=q-sub>? marks</span>
+  <div class=q-text>Complete the table on Answer Sheet B.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Note</button>
+  <div class=ans-body>
+    <div>取决于梅窝地图上的具体标记点。常见表格内容包括：</div>
+    <ul style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li>Grid reference（网格座标）</li>
+      <li>Height（高度）</li>
+      <li>Relief feature（地势特征 — 如 spur / valley / ridge）</li>
+      <li>Conventional sign（惯用符号识别）</li>
+    </ul>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(b)(i)</span><span class=q-sub>1 mark</span>
+  <div class=q-text>Find the whole circle bearing of the Silvermine Beach Resort from the spot height 66.6.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
+  <div class=ans-body>
+    <strong>Whole Circle Bearing（全方位角 WCB）</strong>
+    <div class=formula-box>从正北（0°）顺时针测量到目标方向的角度（0°–360°）</div>
+    <div>步骤：</div>
+    <ol style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li>在 spot height 66.6 处画一条正北线</li>
+      <li>从 spot height 66.6 向 Silvermine Beach Resort 画一条直线</li>
+      <li>用量角器测量正北线到目标线的顺时针夹角</li>
+    </ol>
+    <div class=tip>📌 <strong>注意</strong>：方位角计算在复习笔记中<strong>未覆盖</strong>，这是本次复习的知识缺口。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(b)(ii)</span><span class=q-sub>1 mark</span>
+  <div class=q-text>Find the reduced bearing of the spot height 63.5 from Feature 7 at 849180.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
+  <div class=ans-body>
+    <strong>Reduced Bearing（象限角 / 缩小方位）</strong>
+    <div class=formula-box>以 N（北）或 S（南）为基准，测量偏向东或西的角度，格式如：N45°E / S30°W</div>
+    <div>步骤：</div>
+    <ol style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li>判断目标相对于出发点是在 NE / SE / SW / NW 象限</li>
+      <li>测量从 N 或 S 到目标线的夹角</li>
+      <li>格式：<strong>N/S 角度° E/W</strong>（例如 N30°E）</li>
+    </ol>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(c)(i)</span><span class=q-sub>4 marks</span>
+  <div class=q-text>Draw a cross-section of A-B in the frame provided on the Answer Sheet. Use the vertical scale of 1 cm to 10 m.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
+  <div class=ans-body>
+    <strong>Cross Section 绘制步骤：</strong>
+    <ol style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li>将一张纸的边缘对齐地图上的 A-B 线</li>
+      <li>标记所有等高线与纸边的交叉点及其高度</li>
+      <li>将标记转移到方格纸底部（x 轴 = 水平距离）</li>
+      <li>按垂直比例尺（1 cm = 10 m）在 y 轴上标出各点高度</li>
+      <li>用平滑曲线连接各点</li>
+      <li>标注标题、垂直比例尺、水平比例尺</li>
+    </ol>
+    <div><strong>Reference</strong>: Unit 5.2 — Drawing a Cross Section</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(c)(ii)</span><span class=q-sub>2 marks</span>
+  <div class=q-text>Work out the vertical exaggeration of the cross-section. Show your calculation.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Answer</button>
+  <div class=ans-body>
+    <strong>V.E. Formula:</strong>
+    <div class=formula-box>V.E. = Vertical Scale (VS) ÷ Horizontal Scale (HS)</div>
+    <strong>Calculation:</strong>
+    <div style=margin:.4rem 0;font-size:.85rem>
+      • VS = 1 cm : 10 m = 1 cm : 1,000 cm (convert to same unit) → 1 : 1,000<br>
+      • HS = Map scale = 1 : 5,000 (1 cm on map = 5,000 cm on ground)<br>
+      • V.E. = 1,000 ÷ 5,000 = <strong>0.2</strong>
+    </div>
+    <div class=tip>📌 或写为 <strong>1 : 5</strong>（水平方向是垂直方向的 5 倍）</div>
+    <div>注意单位统一换算：所有长度用 cm 或 m。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(d)(i)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>Calculate the average gradient of the slope from A to the spot height 63.5.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
+  <div class=ans-body>
+    <strong>Gradient Formula:</strong>
+    <div class=formula-box>Gradient = Vertical Rise (VR) ÷ Horizontal Distance (HD)</div>
+    <div style=margin:.4rem 0;font-size:.85rem>
+      • <strong>Vertical Rise</strong> = Height difference = 63.5 m − (height of A)<br>
+      • <strong>Horizontal Distance</strong> = Map distance × Map scale<br>
+      &emsp;= (measured cm on map) × 5,000 cm = result in cm → convert to m<br>
+      • <strong>Gradient</strong> = VR (m) ÷ HD (m)
+    </div>
+    <div>通常表达为 "1 in X"，如 "1 in 5" 表示水平每前进 5 m，高度上升 1 m。</div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(d)(ii)</span><span class=q-sub>3 marks</span>
+  <div class=q-text>Calculate the average gradient of the slope from C to the spot height 63.5.</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Method</button>
+  <div class=ans-body>
+    <strong>Same method as Q4(d)(i)：</strong>
+    <div class=formula-box>Gradient = Vertical Rise ÷ Horizontal Distance</div>
+    <div style=margin:.4rem 0;font-size:.85rem>
+      对比两条坡道的数值大小，值越小（如 1:5）表示越陡；值越大（如 1:20）表示越缓。
+    </div>
+  </div>
+</div>
+
+<div class=q-card>
+  <span class=q-label>Q4(d)(iii)</span><span class=q-sub>2 marks</span>
+  <div class=q-text>Which slope, the slope from A or the slope from C, is more likely to have landslides? Why?</div>
+  <button class=ans-toggle onclick="ta(this)">▶ Show Model Answer</button>
+  <div class=ans-body>
+    <strong>✅ Model Answer:</strong>
+    <div>取决于梯度计算结果：</div>
+    <ul style=margin:.4rem 0 0 1.2rem;font-size:.85rem>
+      <li><strong>更陡的坡</strong>（gradient 值更小，如 1:3 vs 1:10）更容易发生山泥倾泻</li>
+      <li>原因：陡坡的<strong>Driving force（推动力）更大</strong>，重力分量更大 → 更容易超过 resisting force</li>
+    </ul>
+    <div class=tip>📌 知识点联动：Unit 5.3 — Driving force &gt; Resisting force → Landslide</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Analysis Summary -->
+<!-- ============================================================ -->
+<section>
+<h2>📊 试卷分析总结 <span class=marks>Revision Gap Analysis</span></h2>
+
+<div class=q-card>
+  <span class=q-label>Coverage</span>
+  <div class=q-text style=font-weight:400;margin:.4rem 0>
+    <table style=font-size:.85rem;width:100%>
+      <tr><th>Topic</th><th>Exam Coverage</th><th>Revision Match</th><th>Status</th></tr>
+      <tr><td>5.1 Natural Hazards</td><td>Section C(f), D</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>5.2 Relief / Map</td><td>Q1-2, Q4(a-d)</td><td>剖面/VE/坡度 ✅<br><strong>方位角计算 ❌</strong></td><td style=color:var(--orange)>⚠️</td></tr>
+      <tr><td>5.3 Landslides</td><td>Q4, Section C(j), Q4(d)(iii)</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>5.4 Weather / Typhoons / Monsoons</td><td>Q6, Q2(a-d)</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>5.5 Earthquakes / Plates</td><td>Q3, Section C(a-b), Q1(a-e)</td><td>全覆盖<br><strong>第二地震带未明确列出</strong></td><td style=color:var(--orange)>⚠️</td></tr>
+      <tr><td>5.6 Vulnerability</td><td>Q1(c-e), D</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>3.1 Food Sources &amp; Farming</td><td>Q7-9, Section C(d-e)(g), Q3</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>3.2 Farming Regions China</td><td>Section B, Section C(h)(i)</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+      <tr><td>3.3 Food Demand &amp; Supply</td><td>Section D (可能)</td><td>全覆盖</td><td style=color:var(--green)>✅</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class=q-card style=background:#fff7ed;border-color:#fed7aa>
+  <span class=q-label style=background:var(--orange)>Gaps Found</span>
+  <div class=q-text style=font-weight:400;margin:.4rem 0>
+    <ol style=margin-left:1.2rem>
+      <li><strong>方位角计算（Bearing）</strong> — Q4(b) 要求 whole circle bearing 和 reduced bearing，复习笔记未覆盖</li>
+      <li><strong>第二大地震带名称</strong> — Q1(b) 要求两条地震带，笔记仅列出 Pacific Ring of Fire，未提 Alpine-Himalayan belt</li>
+      <li><strong>模拟题难度偏低</strong> — 缺少资料分析题、地图计算题、高阶推理练习</li>
+    </ol>
+  </div>
+</div>
+
+<div class=q-card style=background:#f0fdf4;border-color:#bbf7d0>
+  <span class=q-label style=background:var(--green)>Strengths</span>
+  <div class=q-text style=font-weight:400;margin:.4rem 0>
+    <ul style=margin-left:1.2rem>
+      <li>词汇表覆盖了试卷中所有关键术语</li>
+      <li>概念讲解深度与考试要求匹配</li>
+      <li>香港本地案例（大帽山、粮食来源、气候特征）有充分覆盖</li>
+      <li>季风机制、农业分类、LDC vs MDC 脆弱性对比等高频考点准备充分</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>Generated from 2025-2026 F.2 Geography Final Exam Paper</p>
+  <p><a href="https://github.com/gzxmren/geo-revision">gzxmren/geo-revision</a> · 答案解析基于复习笔记整理</p>
+  <p style=margin-top:.4rem;font-size:.75rem>显示答案请点击每个题目下方的 "Show Answer" 按钮</p>
+</footer>
+
+</div>
+
+<script>
+function ta(btn){
+  var body=btn.nextElementSibling;
+  if(body&&body.classList.contains('ans-body')){
+    body.classList.toggle('show');
+    btn.textContent=body.classList.contains('show')?'▼ Hide Answer':'▶ Show Answer';
+  }
+}
+</script>
+</body>
+</html>
